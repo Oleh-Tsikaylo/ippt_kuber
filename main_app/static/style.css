@@ -1,0 +1,149 @@
+html{
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before{
+    box-sizing: inherit;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    max-width: 1220px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+body{
+    color: #4682B4;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 0px;
+    /*font-family: 'Roboto Condensed', sans-serif;*/
+}
+
+.header{
+    background: #4682B4;
+}
+
+.header__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+
+.menu__list{
+    display: flex;
+}
+
+.menu__item{
+    margin: 0 15px;
+
+}
+
+.menu__list-link{
+    text-transform: uppercase;
+    color: #ffff;
+    font-size: 17px;
+    line-height: 21px;
+    padding-bottom: 5px;
+    transition: all .5s;
+    border-bottom: 1px solid transparent;
+}
+
+.menu__list-link:hover{
+    border-bottom: 1px solid #fefefe;
+}
+
+.phone{
+    color: #fefefe;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+
+.footer{
+    padding: 100px 0 1px;
+    background: #4682B4;
+}
+
+.footer__top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1px;
+}
+
+.footer__social{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer__social-link{
+    margin: 0 15px;
+}
+
+.slider {
+    max-width: 750px;
+    position: relative;
+    margin: auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: 415px;
+    padding: 16px;
+    color: rgba(255, 0, 119, 0.747);
+    font-weight: bold;
+    font-size: 58px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    margin-left: 60px;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0, 8);
+}
+
+
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4;}
+    to {opacity: 1;}
+}
+
+@keyframes fade {
+    from {opacity: .4;}
+    to {opacity: 1;}
+}
