@@ -1,0 +1,21 @@
+{% extends 'main_app/wrapper.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'login.css' %}">
+{% endblock %}
+
+{% block title %}
+    Готові вироби
+{% endblock %}
+{% block content %}
+    <h1>Ювелiрнi прикраси</h1>
+    <div>
+        <p><img src="{{ product.image.url }}"></p>
+        <p>{{ product.name }}</p>
+        <p>{{ product.amount }}</p>
+        <p>{{ product.size }}</p>
+        <p>{{ product.state }}</p>
+        <a href="{% url 'index' %}">Повернутись на головну</a>
+    </div>
+{% endblock %}

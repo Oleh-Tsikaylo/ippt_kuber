@@ -1,0 +1,35 @@
+{% extends 'main_app/wrapper.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'login.css' %}">
+{% endblock %}
+
+{% block title %}
+    Деталі замовлення
+{% endblock %}
+{% block content %}
+    <div>
+
+         <div class="main">
+        <div id="form-menu">
+            <form method="POST" action="{% url 'login' %}" id="#form-menu">
+        </form>
+        </div>
+
+
+        <p>ПІБ: {{ order.PIB }}</p>
+        <p>Тип прикраси: {{ order.type_of_jewellery }}</p>
+        <p>Номер телефону: {{ order.phone_number }}</p>
+        <p>Адреса: {{ order.address }}</p>
+        <p>Доставка: {% ifequal order.delivery 'yes'%}Так{% else %} Ні{% endifequal %}</p>
+        <p>Трансляція: {% ifequal order.broadcast 'yes'%}Так{% else %} Ні{% endifequal %}</p>
+        <p>Ювелір: {% ifequal order.fk_jeweller None %}Немає{% else %} {{ order.fk_jeweller }}{% endifequal %}</p>
+        {% ifequal order.fk_jeweller None %}
+            <a href="{% url 'order_accept' id_jeweller=request.user.id id_order=order.id %}">
+                <button>Прийняти замовлення</button>
+            </a>
+        {% endifequal %}
+        <a href="{% url 'index' %}">Повернутись на головну</a>
+    </div>
+{% endblock %}

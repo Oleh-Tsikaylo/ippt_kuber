@@ -1,0 +1,36 @@
+{% extends 'main_app/wrapper.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'login.css' %}">
+{% endblock %}
+
+{% block title %}
+    Вхід
+{% endblock %}
+{% block content %}
+    <div>
+       <h1> <a href="{% url 'index' %}">Назад на головну</a> </h1>
+
+    </div>
+     <div class="main">
+        <div id="form-menu">
+            <h1>Sign in</h1>
+            <form method="POST" action="{% url 'login' %}" id="#form-menu">
+
+            {% csrf_token %}
+            {% for field in form %}
+                <p>{{ field.label }}: </p>
+            <div>
+                {{ field }}
+            </div>
+
+            {% endfor %}
+
+            <button type="submit">Увійти</button>
+        </form>
+
+        </div>
+    </div>
+
+{% endblock %}

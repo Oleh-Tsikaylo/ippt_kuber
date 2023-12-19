@@ -1,0 +1,26 @@
+{% extends 'main_app/wrapper.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'login.css' %}">
+{% endblock %}
+
+{% block title %}
+    Готові вироби
+{% endblock %}
+{% block content %}
+    <h1>Букети Квітів</h1>
+    <div id="product">
+    <div>
+        {% for product in products %}
+            <div>
+                <a href="#"><p><img src="{{ product.image.url }}" width="350" height="350"> </p></a>
+                <a href="#"><p style="font-size: 25px;color: black;">{{ product.name }}</p></a>
+                <p>Кількість: {{ product.amount }}</p>
+                <p><b>Ціна: {{ product.price }} грн</b></p>
+            </div>
+        {% endfor %}
+        <h2><a href="{% url 'index' %}">Повернутись на головну</a></h2>
+    </div>
+     </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'main_app/wrapper.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'login.css' %}">
+{% endblock %}
+
+{% block title %}
+    Замовлення
+{% endblock %}
+{% block content %}
+    <h1></h1>
+    <div>
+        {% for order in orders %}
+            <div>
+
+                <p>{{ order.PIB }}</p>
+                <p>{{ order.type_of_jewellery }}</p>
+                <p>{{ order.phone_number }}</p>
+                <a href="{% url 'order_detail' id_order=order.id %}"><button>Переглянути інформацію</button></a>
+                <a href="{% url 'order_delete' id_order=order.id %}"><button>Видалити замовлення</button></a>
+            </div>
+        {% endfor %}
+        <a href="{% url 'index' %}">Повернутись на головну</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'main_app/wrapper.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'login.css' %}" >
+      {% endblock %}
+
+      {% block title %}
+      Створення замовлення
+      {% endblock %}
+      {% block content %}
+<div>
+    <h2><a href="{% url 'index' %}">Назад на головну</a></h2><br><br>
+
+</div>
+<div class="main">
+
+    <div>
+        <div class="main">
+            <div id="form-menu">
+                <form method="POST" action="{% url 'make_order' %}">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <p>{{ field.label }}: {{ field }}</p>
+                    {% endfor %}
+                    <button type="submit">Зробити замовлення</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
